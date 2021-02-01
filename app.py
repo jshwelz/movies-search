@@ -6,7 +6,6 @@ __author__ = 'Josh Welchez'
 __email__ = 'jshwelz09@gmail.com'
 
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 from globals import config, db
 from commands import register_commands
 from flask_cors import CORS
@@ -26,20 +25,13 @@ def init_app():
         return 'Movies Api'
 
     db.init_app(app)
-
-
     routes.initialize_routes(app)
     register_commands(app)
     return app
 
 
-
-
-
-
-
 app = init_app()
 
+
 if __name__ == '__main__':
-    # app.run(host="0.0.0.0")
-    load_movielens()
+    app.run()
