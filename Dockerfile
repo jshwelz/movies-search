@@ -2,8 +2,6 @@ FROM python:3
 
 RUN python3 -m venv /opt/venv
 
-RUN . /opt/venv/bin/activate && pip install -r requirements.txt
-
 # Install dependencies:
 COPY requirements.txt .
 

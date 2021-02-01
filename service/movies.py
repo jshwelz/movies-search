@@ -42,19 +42,11 @@ def get_all_movies(request_options):
 		filters = {n.split(',')[0]: n.split(',')[1] for n in filters_list}
 
 		for attr, value in filters.items():
-<<<<<<< HEAD
-=======
-			print(attr)
->>>>>>> 26af151738f48cbc3baae784ecd9a5455fbd5a9d
 			if attr == 'userId':
 				q = q.filter(getattr(RatingsModel, attr) == int(value))
 			if attr == 'movieId':
 				q = q.filter(getattr(MoviesModel, attr) == int(value))
 			if attr == 'title':
-<<<<<<< HEAD
-=======
-				print('here', value)
->>>>>>> 26af151738f48cbc3baae784ecd9a5455fbd5a9d
 				q = q.filter(getattr(MoviesModel, attr).like("%{}%".format(value)))
 			if attr == 'tag':
 				q = q.filter(getattr(TagsModel, attr).like("%{}%".format(value)))
